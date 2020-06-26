@@ -1,0 +1,22 @@
+{% paginate blog.articles by section.settings.blog_posts_per_page %}
+
+<div data-loadmore-container>
+    {% for article in blog.articles %}
+    {% endfor %}
+    
+  {% if paginate.next %}
+    <a id="LoadMoreLink" class="loadmore_link button" href="{{ paginate.next.url }}">Load more</a>
+  {% endif %}  
+</div>
+
+{% endpaginate %}
+
+{% schema %}
+
+{
+  "name": "Blog",
+  "class": "blog-section",
+  "settings": []
+}
+
+{% endschema %}
